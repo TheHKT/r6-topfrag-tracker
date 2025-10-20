@@ -104,6 +104,7 @@ def construct_message(match_data, username):
     topFragger = get_top_fragger(team)
     isUserTopFragger = username_in_list(username, topFragger)
     if(not isUserTopFragger):
+        print(f"{username} is not the top fragger!")
         return None
 
     # Teammates auflisten (ohne User selbst)
