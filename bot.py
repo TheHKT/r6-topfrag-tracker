@@ -9,7 +9,7 @@ load_dotenv()
 
 # Replace with your bot token
 TOKEN = os.getenv("DISCORD_TOKEN")
-ALERT_CHANNEL_ID = os.getenv("ALERT_CHANNEL_ID")
+ALERT_CHANNEL_ID = int(os.getenv("ALERT_CHANNEL_ID"))
 USERNAME = os.getenv("R6_USERNAME")
 
 # Intents let your bot access certain events
@@ -27,7 +27,7 @@ async def on_ready():
     result_channel = bot.get_channel(ALERT_CHANNEL_ID)
     periodic_task.start()
 
-@tasks.loop(minutes=15)
+@tasks.loop(minutes=12)
 async def periodic_task():
     """
     This task runs periodically and checks a condition
